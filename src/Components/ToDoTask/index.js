@@ -27,6 +27,7 @@ export function ToDoTask ({element, index}) {
       dispatch(editTodo(indexToBeEdited, inputValue));
     }
   }
+
   return(
     <div className='todoTask'>
       {
@@ -37,6 +38,6 @@ export function ToDoTask ({element, index}) {
         <i id='edit'   className='fa fa-edit edit buttons' onClick={() => handleEdit(index)}></i>
         <i id='delete'  className='fa-solid fa-trash-can buttons' onClick={ () => {dispatch(removeTodo(index))} }></i>
       </div>    
-  </div>
+    </div>
     );
   }
