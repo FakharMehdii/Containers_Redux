@@ -1,17 +1,20 @@
+import { useDispatch } from "react-redux";
 import { ToDoTask } from "../Components/ToDoTask";
 import { editTodo } from "../store/actions";
 import { removeTodo } from "../store/actions";
+
 const ToDoTaskContainer = ({element, index}) => {
- 
 
-    const mapDispatchToProps = (dispatch) => {
-        return {
-            editTodo: (index, value) => {dispatch(editTodo(index, value))},
-            removeTodo: (index) => {dispatch(removeTodo(index))}
-        };
-    };
+    const dispatch = useDispatch();
 
-    return <ToDoTask {...mapDispatchToProps} element={element} index={index} />
+    const editTodoHandler = (index, value) => {
+        dispatch(editTodo(index, value));
+    }
+    const removeTodoHandler = (index) => {
+        dispatch(removeTodo(index));
+    }
+    
+    return <ToDoTask element={element} index={index}  editTodo={editTodoHandler} removeTodo={removeTodoHandler} />
 }
 
 export default ToDoTaskContainer;

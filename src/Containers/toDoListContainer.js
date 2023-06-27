@@ -1,10 +1,9 @@
+import {useSelector} from "react-redux"
 import { ToDoList } from "../Components/ToDoList";
 
 const ToDoListContainer = () => {
-    const mapStateToProps = (state) => {
-        return { tasks: state.list.tasks };
-    };
-    return <ToDoList {...mapStateToProps}  />
+    const tasks = useSelector(state => state.list.tasks)
+    return <ToDoList tasks={tasks} />
 }
 
 export default ToDoListContainer;

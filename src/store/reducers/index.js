@@ -20,6 +20,7 @@ const list = (state = initialState, action) => {
         case REMOVE_TODO:
         {
             const updatedTasks = state.tasks.filter((task, index) => index !== action.payload);
+
             return {
                 ...state,
                 tasks: updatedTasks,
@@ -31,6 +32,7 @@ const list = (state = initialState, action) => {
             const updatedTasks= [...state.tasks];
             updatedTasks[index] = value;
             console.log(index, value);
+            
             return {
                 ...state,
                 tasks: updatedTasks,

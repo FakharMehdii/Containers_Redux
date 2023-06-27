@@ -1,10 +1,7 @@
-import {useSelector} from "react-redux"
 import InputFieldContainer from "../../Containers/inputFieldContainer"
 import ToDoTaskContainer from "../../Containers/todoTaskContainer"
 
-
-export const ToDoList = () => {
-  const tasks = useSelector(state => state.list.tasks)
+export const ToDoList = ({tasks}) => {
     return(
       <div className='toDoList'>
           <h2 className='heading'>My Todo</h2>
