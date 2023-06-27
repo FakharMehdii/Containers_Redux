@@ -1,10 +1,6 @@
 import {useState} from "react"
-import { useDispatch } from "react-redux";
-import { editTodo } from "../../store/actions";
-import { removeTodo } from "../../store/actions";
 
-export function ToDoTask ({element, index}) { 
-  const dispatch=useDispatch()
+export function ToDoTask ({element, index, editTodo, removeTodo}) { 
   const [done, setDone] = useState(false)
   const [edit, setEdit] = useState(false)
   const [inputValue, setInputValue] = useState('');
@@ -24,9 +20,10 @@ export function ToDoTask ({element, index}) {
     if(event.key === 'Enter' && inputValue!=="")
     {
       setEdit(false);
-      dispatch(editTodo(indexToBeEdited, inputValue));
+      editTodo(indexToBeEdited, inputValue);
     }
   }
+
   return(
     <div className='todoTask'>
       {
@@ -35,8 +32,8 @@ export function ToDoTask ({element, index}) {
       }
       <div>
         <i id='edit'   className='fa fa-edit edit buttons' onClick={() => handleEdit(index)}></i>
-        <i id='delete'  className='fa-solid fa-trash-can buttons' onClick={ () => {dispatch(removeTodo(index))} }></i>
+        <i id='delete'  className='fa-solid fa-trash-can buttons' onClick={ () => {removeTodo(index)} }></i>
       </div>    
-  </div>
+    </div>
     );
   }
