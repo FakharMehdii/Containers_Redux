@@ -17,6 +17,7 @@ export const removeTodo = (index) => {
 }
 
 export const editTodo = (index, value) => {
+    console.log("in the action, index is: ", index);
     return {
         type: EDIT_TODO,
         payload: {index, value},   

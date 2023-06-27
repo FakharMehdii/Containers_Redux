@@ -27,11 +27,14 @@ const list = (state = initialState, action) => {
         }
         case EDIT_TODO:
         {
-            const updatedTasks= state.tasks;
-            updatedTasks[action.payload.item] = action.payload.value;
+            const {index, value} = action.payload;
+            const updatedTasks= [...state.tasks];
+            updatedTasks[index] = value;
+            console.log(index, value);
             return {
+                ...state,
                 tasks: updatedTasks,
-            }
+            };
 
         }
         default:
